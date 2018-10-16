@@ -59,7 +59,7 @@ void draw(){
  
   background(0);
   house(255, 223, 0);
-  path();
+//  path();
   moon();
   tree1.display(14, 53, 15, 100, 300, 50, 900, 220, 480, 150, 900); //calling tree1 to display
   tree2.display(18, 53, 25, 1600, 300, 1730, 900, 1720, 480, 1830, 900); // calling tree2 to display
