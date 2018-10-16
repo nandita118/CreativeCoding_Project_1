@@ -2,18 +2,29 @@
 
 class Fog{
 
-Fog(float x, float y, float length, float width, int shade){
+Fog(){
   
-  
+  //float x, float y, float length, float width, int shade
   
   
   
 }
 
-void display(float randomX, float randomY,float w_size, float h_size){ //use lines or shapes to make trees, make the lines/shapes move and change colors
+void display(){ //use lines or shapes to make trees, make the lines/shapes move and change colors
   
-  
- ellipse(randomX, randomY, w_size, h_size);
+  //float mX, float mY,float w_size, float h_size
+ //ellipse(mX, mY, w_size, h_size);
+ 
+   /*background(0);
+    fill(255);
+    rotate(PI/4);
+  for(int i = 0; i<20; i++){
+    fog[i]= fog[i] + 5;
+    rect(i*40, fog[i], 5, 20);
+    if (fog[i] >= height){
+      fog[i] = int(random(-200,0));
+    }
+  }*/
   
   /*for (int i = 0; i < 100; i++) {
  

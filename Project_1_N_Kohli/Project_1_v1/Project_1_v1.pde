@@ -1,9 +1,9 @@
 
 PShape trap;
 
-Fog[][] fog = new Fog[2][10];
+//Fog[] fog = new Fog[10];
+int[] fog= new int[200];
 
-Fog fog1;
 
 Trees tree1; // creating three trees in class Trees
 Trees tree2;
@@ -14,6 +14,8 @@ Eyes eyes2;
 Eyes eyes3;
 
 Pumpkin pumpkin1; //creating one pumpkin in Pumpkin class
+
+
 
 void setup(){
   size(1920, 1080, P2D);
@@ -29,8 +31,10 @@ void setup(){
   
   pumpkin1 = new Pumpkin();
   
+  //for(int i = 0; i < fog.length; i++){
+  // fog[0] = new Fog();
   
-  trap = createShape();
+  trap = createShape(); // house trapezoid
   trap.beginShape();
   trap.fill(109, 109, 109, 255);
   trap.stroke(109, 109, 109);
@@ -40,11 +44,20 @@ void setup(){
   trap.vertex(width/2 + 300, height/2 - 100);
   trap.endShape(CLOSE);
   
+  for(int i = 0; i<20; i++){
+      fog[i] = int(random(-1920, 0));
+   rect(i*40, height/2, 5, 20);             // 40 controls the distance between the fog balls
+  }
+
+  
 }
 
 
 
 void draw(){
+ 
+ 
+  background(0);
   house(255, 223, 0);
   path();
   moon();
@@ -58,13 +71,31 @@ void draw(){
   eyes3.display(1700, 400);
   }
   
-  pumpkin1.display(); // calling pumpkin1 to display
+ // pumpkin1.display(); // calling pumpkin1 to display
   
-  fog1.display(random(0, 1900), random(600, 700), random(10, 50), random(10, 60));
+  //for(int i = 0; i < fog.length; i++){
+    
+  // fog[i].display(random(0, 1900), random(600, 700), random(10, 50), random(10, 60));
+  
+  
+   //loop();
+
+   fill(225, 50);
+   noStroke();
+   rotate(PI/2);
+   for(int i = 0; i<200; i++){
+    fog[i]= fog[i] + 5;
+    ellipse(i*40, fog[i], 100, 100);
+    if (fog[i] >= height){
+      fog[i] = int(random(-1920, 0));
+    }
+  }
+  
+  }
   
  
   
-}
+
 
 
 void house(int colorR, int colorG, int colorB){
@@ -87,7 +118,7 @@ void house(int colorR, int colorG, int colorB){
   fill(114, 77, 52, 255);
   triangle(width/2 - 200, height/2 - 100, width/2, height/2 - 350, width/2 + 200, height/2 - 100);
   
-  if (mousePressed == true){
+  if (mousePressed == true){ // lights flash
     noStroke();
     fill(255, 233, 0); 
     ellipse(width/2, height/2 + 90, 60, 120);
@@ -115,7 +146,7 @@ void house(int colorR, int colorG, int colorB){
     rect(width/2 - 420, height/2 - 120, 100, 100);
 
   
-  println(mouseX, mouseY);
+  println(mouseX, mouseY); //shows where mouse is on grid
   
  
     
@@ -139,15 +170,8 @@ void house(int colorR, int colorG, int colorB){
 
 
 
-void path(){  //create winding path to reach house
 
-  
-  
-}
-
-
-
-void moon(){ // create cresent moon shape
+void moon(){ // create full moon shape
   
   fill(255);
   ellipse(100, 100, 100, 100);
